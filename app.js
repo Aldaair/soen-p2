@@ -14,10 +14,26 @@ const items = [
     {id: 5, name : 'Comprar entradas para el cine'},
 ]
 
-items.map((item) => {
-    const newItem = document.createElement("li");
-    //const newItem = document.createElement("input", {type : "checkbox"});
-    newItem.innerHTML = item.name;
-    container.appendChild(newItem);
-})
+items.forEach((item) => {
+    const li = document.createElement("li");
+
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.value = item.id;
+
+    const label = document.createElement("label");
+    label.textContent = item.name;
+
+    li.appendChild(checkbox);
+    li.appendChild(label);
+    container.appendChild(li);
+
+    checkbox.addEventListener("change", function() {
+        if (this.checked) {
+            label.classList.add("completed");
+        } else {
+            label.classList.remove("completed");
+        }
+    });
+});
 
