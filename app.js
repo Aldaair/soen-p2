@@ -5,13 +5,19 @@ const GI = {
 		return document.createElement(tag)
 	}
 }
-
-
-const to_do = [
-    'Alimentar al perro',
-    'Estudiar para prueba escrita',
-    'Pagar taxes',
-    'Pasear a perro',
-    'Comprar entradas para el cine',
+let container = document.getElementById("container");
+const items = [
+    {id: 1, name : 'Alimentar al perro'},
+    {id: 2, name : 'Estudiar para prueba escrita'},
+    {id: 3, name : 'Pagar taxes'},
+    {id: 4, name : 'Pasear a perro'},
+    {id: 5, name : 'Comprar entradas para el cine'},
 ]
+
+items.map((item) => {
+    const newItem = document.createElement("li");
+    //const newItem = document.createElement("input", {type : "checkbox"});
+    newItem.innerHTML = item.name;
+    container.appendChild(newItem);
+})
 
